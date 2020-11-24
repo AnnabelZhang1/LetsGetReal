@@ -37,16 +37,15 @@ public class RealNumber{
   }
 
   public RealNumber divide(RealNumber other){
+    if (other.getValue() == 0)
+      throw new ArithmeticException("Cannot divide by zero");
     RealNumber quotient = new RealNumber(value / other.getValue());
     return quotient;
   }
 
-  /*
-  *Return a new RealNumber that has the value of:
-  *this minus the other
-
   public RealNumber subtract(RealNumber other){
-    return null;
+    RealNumber difference = new RealNumber(value - other.getValue());
+    return difference;
   }
-*/
+
 }
