@@ -47,5 +47,5 @@ public class RealNumber{
     RealNumber difference = new RealNumber(value - other.getValue());
     return difference;
   }
-
+//
 }
