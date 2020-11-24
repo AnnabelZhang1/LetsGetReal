@@ -61,19 +61,22 @@ public class RationalNumber extends RealNumber
 
   private static int gcd(int a, int b)
     {
+      a = Math.abs(a);
+      b = Math.abs(b);
       if (a < b)
         {
           int temp = b;
           a = b;
           b = temp;
         }
-        int remainder = a % b;
-        while (remainder != 0)
+      int remainder = a % b;
+      while (remainder != 0)
         {
+          remainder = a % b;
           a = b;
           b = remainder;
         }
-        return a;
+      return a;
     }
 
   private void reduce()
@@ -105,5 +108,39 @@ public class RationalNumber extends RealNumber
     {
       RationalNumber difference = new RationalNumber((numerator * other.getDenominator()) - other.getNumerator(), denominator * other.getDenominator());
       return difference;
+    }
+
+  public static void main(String[] args)
+    {
+      RationalNumber a = new RationalNumber(1, 2);
+      RationalNumber b = new RationalNumber(9, 1);
+      RationalNumber c = new RationalNumber(1, 2);
+      RationalNumber d = new RationalNumber(210, 30);
+      RationalNumber e = new RationalNumber(210, 30);
+
+      System.out.println(a.getValue());
+      System.out.println(a.getNumerator());
+      System.out.println(a.getDenominator());
+
+      System.out.println(a.reciprocal());
+      System.out.println(b.reciprocal());
+
+      System.out.println(a.equals(c));
+      System.out.println(a.equals(b));
+
+      System.out.println(a.toString());
+
+      System.out.println(gcd(36, 18));
+
+      d.reduce();
+      System.out.println(d.getValue()); //infinity.. ?
+
+      System.out.println(a.multiply(c).getValue());
+      System.out.println(b.multiply(c).getValue());
+      System.out.println(a.divide(c).getValue());
+      System.out.println(c.divide(e).getValue());
+
+      System.out.println(a.add(b).getValue());
+      System.out.println(a.subtract(c).getValue());
     }
 }
