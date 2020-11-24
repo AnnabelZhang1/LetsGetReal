@@ -48,32 +48,30 @@ public class RationalNumber extends RealNumber
     return other.getValue() == this.getValue();
   }
 
-
-  /*
-  *@return the value expressed as "3/4" or "8/3"
-
   public String toString(){
     return numerator + "/" + denominator;
   }
 
-  /**Calculate the GCD of two integers.
-  *@param a the first integers
-  *@param b the second integer
-  *@return the value of the GCD
-
   private static int gcd(int a, int b){
-    use euclids method or a better one
-    http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    if (a < b)
+      {
+        int temp = b;
+        a = b;
+        b = temp;
+      }
+    int remainder = a % b;
+    while (remainder != 0)
+      {
+        a = b;
+        b = remainder;
+      }
+    return a;
   }
 
-  /**
-  *Divide the numerator and denominator by the GCD
-  *This must be used to maintain that all RationalNumbers are
-  *reduced after construction.
-
   private void reduce(){
-
+    int greatestcd = gcd(numerator, denominator);
+    numerator = numerator / greatestcd;
+    denominator = denominator / greatestcd;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
