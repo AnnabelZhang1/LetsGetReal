@@ -73,22 +73,18 @@ public class RationalNumber extends RealNumber
     numerator = numerator / greatestcd;
     denominator = denominator / greatestcd;
   }
-  /******************Operations Return a new RationalNumber!!!!****************/
-  /**
-  *Return a new RationalNumber that is the product of this and the other
 
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    RationalNumber product = new RationalNumber(numerator * other.getNumerator(), denominator * other.getDenominator());
+    return product;
   }
-
-  /**
-  *Return a new RationalNumber that is the this divided by the other
 
   public RationalNumber divide(RationalNumber other){
-    return null;
+    RationalNumber quotient = new RationalNumber(numerator * other.getDenominator(), denominator * other.getNumerator());
+    return quotient;
   }
 
-  /**
+/*
   *Return a new RationalNumber that is the sum of this and the other
 
   public RationalNumber add(RationalNumber other){
