@@ -25,4 +25,13 @@ public abstract class Number{
     else
       return this.getValue() == other.getValue();
   }
+
+  public static void main (String[] args){
+    Number a = new RealNumber(1.00024);
+    Number b = new RealNumber(1.00024);
+    Number c = new RealNumber(0.005);
+
+    System.out.println(a.compareTo(b));
+    System.out.println(b.compareTo(c));
+  }
 }
