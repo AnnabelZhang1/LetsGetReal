@@ -13,4 +13,16 @@ public abstract class Number{
       else
         return 1;
   }
+
+  public boolean equals(Number other){
+    if (this.getValue() != 0)
+      {
+        double within = (Math.abs(this.getValue() - other.getValue())) / this.getValue();
+        if (within <= 0.00001)
+          return true;
+        return false;
+      }
+    else
+      return this.getValue() == other.getValue();
+  }
 }

@@ -14,18 +14,6 @@ public class RealNumber extends Number{
   }
   //---------ONLY EDIT BELOW THIS LINE------------
 
-  public boolean equals(RealNumber other){
-    if (value != 0)
-      {
-        double within = (Math.abs(other.getValue() - value)) / value;
-        if (within <= 0.00001)
-          return true;
-        return false;
-      }
-    else
-      return value == other.value;
-  }
-
   public RealNumber add(RealNumber other){
      RealNumber sum = new RealNumber(other.getValue() + value);
      return sum;
@@ -47,7 +35,6 @@ public class RealNumber extends Number{
     RealNumber difference = new RealNumber(value - other.getValue());
     return difference;
   }
-
 
   public static void main(String[] args)
     {
